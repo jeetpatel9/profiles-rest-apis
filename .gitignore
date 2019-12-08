@@ -1,32 +1,137 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+# Created by https://www.gitignore.io/api/python,vagrant
+# Edit at https://www.gitignore.io/?templates=python,vagrant
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-Vagrant.configure("2") do |config|
- # The most common configuration options are documented and commented below.
- # For a complete reference, please see the online documentation at
- # https://docs.vagrantup.com.
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
- # Every Vagrant development environment requires a box. You can search for
- # boxes at https://vagrantcloud.com/search.
- config.vm.box = "ubuntu/bionic64"
- config.vm.box_version = "~> 20190314.0.0"
+# C extensions
+*.so
 
- config.vm.network "forwarded_port", guest: 8000, host: 8000
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
- config.vm.provision "shell", inline: <<-SHELL
-   systemctl disable apt-daily.service
-   systemctl disable apt-daily.timer
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
-   sudo apt-get update
-   sudo apt-get install -y python3-venv zip
-   touch /home/vagrant/.bash_aliases
-   if ! grep -q PYTHON_ALIAS_ADDED /home/vagrant/.bash_aliases; then
-     echo "# PYTHON_ALIAS_ADDED" >> /home/vagrant/.bash_aliases
-     echo "alias python='python3'" >> /home/vagrant/.bash_aliases
-   fi
- SHELL
-end
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+### Python Patch ###
+.venv/
+
+### Vagrant ###
+# General
+.vagrant/
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+# *.logs
+
+### Vagrant Patch ###
+*.box
+
+# End of https://www.gitignore.io/api/python,vagrant
+eb-package.zip
+static/
