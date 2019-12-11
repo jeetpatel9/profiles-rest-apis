@@ -1,0 +1,34 @@
+
+# Navigate to the project directory.
+# Start vagrant server.
+- vagrant up
+
+# SSH into vagrant server.
+- vagrant ssh
+
+# Navigate to vagrant directory
+- cd /vagrant
+
+# Create python environment.
+- python -m venv ~/env
+
+# Activate python environment.
+- source ~/env/bin/activate
+
+# create requirement.txt and save it with the below given text.
+
+django==2.2
+djangorestframework==3.9.2
+
+# Install requirement.txt file
+- pip install -r requirement.txt
+
+# Create Django project.
+- django-admin startproject profiles_project .
+
+# Create app
+python manage.py startapp profiles_api
+# In settings.py under INSTALLED_APPS define the installed application.
+
+# Start Python application.
+- python manage.py runserver 0.0.0.0:8000
